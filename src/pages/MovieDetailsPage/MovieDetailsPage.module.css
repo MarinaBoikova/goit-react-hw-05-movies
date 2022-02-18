@@ -24,3 +24,15 @@
   display: block;
   width: 200px;
 }
+.activePage {
+  color: blue;
+}
+.navDetailsWrap {
+  display: flex;
+}
+.navDetailsLink {
+  color: brown;
+  text-decoration: none;
+  margin-right: 15px;
+  display: block;
+}

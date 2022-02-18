@@ -17,23 +17,6 @@ const fetchTrandingMovies = () => {
     .catch(error => error);
 };
 
-// const fetchSearchQueryMovie = query => {
-//   return axios
-//     .get(
-//       `${BASE_URL}/3/search/movie/?key=${API_KEY}&language=en-US&query=${query}&include_adult=false`,
-//     )
-//     .then(response => response.data.results)
-//     .catch(error => error);
-// };
-
-// const fetchByIdDetailsMovie = id => {
-//   return axios
-//     .get(`${BASE_URL}/3/search/movie/${id}?key=${API_KEY}&language=en-US`)
-//     .then(response => response.data)
-//     .catch(error => error);
-// };
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
-
 const fetchMovieById = id => {
   return axios
     .get(
@@ -43,35 +26,22 @@ const fetchMovieById = id => {
     .catch(error => error);
 };
 
-// const fetchByIdDetailsMovie = id => {
-//   return axios
-//     .get(`${BASE_URL}/3/search/movie/${id}?key=${API_KEY}&language=en-US`)
-//     .then(response => response.data.results)
-//     .catch(error => error);
-// };
+const fetchCastById = id => {
+  return axios
+    .get(
+      `${BASE_URL}/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US&include_adult=false`,
+    )
+    .then(response => response.data)
+    .catch(error => error);
+};
 
 // const fetchByIdCastMovie = id => {
 //   return axios
 //     .get(
-//       `${BASE_URL}/3/search/movie/${id}/credits?key=${API_KEY}&language=en-US`,
+//       `${BASE_URL}/3/search/movie/${id}/credits?api_key=${API_KEY}`,
 //     )
 //     .then(response => response.data.results)
 //     .catch(error => error);
 // };
 
-// const fetchByIdReviewsMovie = id => {
-//   return axios
-//     .get(
-//       `${BASE_URL}/3/search/movie/${id}/reviews?key=${API_KEY}&language=en-US`,
-//     )
-//     .then(response => response.data.results)
-//     .catch(error => error);
-// };
-
-export {
-  fetchTrandingMovies,
-  // fetchSearchQueryMovie,
-  fetchMovieById,
-  // fetchByIdCastMovie,
-  // fetchByIdReviewsMovie,
-};
+export { fetchTrandingMovies, fetchMovieById, fetchCastById };

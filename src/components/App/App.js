@@ -13,6 +13,7 @@ const App = () => {
         <Route exact path="/">
           <HomePage />
         </Route>
+
         <Route path="/movies">
           <MoviesPage />
           <Route path="/movies/:movieId">
