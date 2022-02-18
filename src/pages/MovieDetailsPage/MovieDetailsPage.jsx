@@ -37,57 +37,61 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <Button text="Go back" onClick={handleOnClick} />
-      {movie.poster_path && (
-        <img
-          className={s.image}
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.original_title}
-        />
+      {movie && (
+        <>
+          <Button text="Go back" onClick={handleOnClick} />
+          {movie.poster_path && (
+            <img
+              className={s.image}
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.original_title}
+            />
+          )}
+          <div className={s.contentWrap}>
+            {' '}
+            <h2>{movie.original_title || movie.original_name}</h2>
+            <span>User Score : </span>
+            <span> {movie.vote_average * 10} %</span>
+            <h2 className={s.subtitle}>Owerviev</h2>
+            <p className={s.description}>{movie.overview}</p>
+            <h2>Genres</h2>
+            <p>genres</p>
+            {/* <p>{movie.genres.map(genre => genre.name).join(' | ')}</p> */}
+          </div>
+          <h2> Additional information</h2>
+          <nav className={s.navDetailsWrap}>
+            <NavLink
+              // to={`${url}/cast`}
+              to={{
+                pathname: `${url}/cast`,
+                state: { from: location.state.from },
+              }}
+              activeClassName={s.activePage}
+              className={s.navDetailsLink}
+            >
+              Cast
+            </NavLink>
+            <NavLink
+              // to={`${url}/reviews`}
+              to={{
+                pathname: `${url}/reviews`,
+                state: { from: location.state.from },
+              }}
+              activeClassName={s.activePage}
+              className={s.navDetailsLink}
+            >
+              Reviews
+            </NavLink>
+          </nav>
+        </>
       )}
-      <div className={s.contentWrap}>
-        {' '}
-        <h2>{movie.original_title || movie.original_name}</h2>
-        <span>User Score : </span>
-        <span> {movie.vote_average * 10} %</span>
-        <h2 className={s.subtitle}>Owerviev</h2>
-        <p className={s.description}>{movie.overview}</p>
-        <h2>Genres</h2>
-        <p>genres</p>
-        {/* <p>{movie.genres.map(genre => genre.name).join(' | ')}</p> */}
-      </div>
-      <h2> Additional information</h2>
-      <nav className={s.navDetailsWrap}>
-        <NavLink
-          // to={`${url}/cast`}
-          to={{
-            pathname: `${url}/cast`,
-            state: { from: location.state.from },
-          }}
-          activeClassName={s.activePage}
-          className={s.navDetailsLink}
-        >
-          Cast
-        </NavLink>
-        <NavLink
-          // to={`${url}/reviews`}
-          to={{
-            pathname: `${url}/reviews`,
-            state: { from: location.state.from },
-          }}
-          activeClassName={s.activePage}
-          className={s.navDetailsLink}
-        >
-          Reviews
-        </NavLink>
-      </nav>
       {/* {/* path={`/movie/${movieId}/cast`} */}
       <Switch>
         <Route path={`${path}/cast`}>
           <Cast movieId={movieId} />
         </Route>
         <Route path={`${path}/reviews`}>
-          <Reviews />
+          <Reviews movieId={movieId} />
         </Route>
       </Switch>
     </>

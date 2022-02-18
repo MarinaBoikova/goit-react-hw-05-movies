@@ -9,7 +9,7 @@ const MoviesList = ({ movies }) => {
   return (
     <>
       <ul>
-        {movies.map(({ id, original_title }) => (
+        {movies.map(({ id, original_title, original_name }) => (
           <li key={id}>
             {/* <Link to={`${match.url}/${id}`}> */}
             <Link
@@ -18,7 +18,7 @@ const MoviesList = ({ movies }) => {
                 state: { from: location },
               }}
             >
-              <p>{original_title}</p>
+              <p> {original_title ? original_title : original_name}</p>
             </Link>
           </li>
         ))}

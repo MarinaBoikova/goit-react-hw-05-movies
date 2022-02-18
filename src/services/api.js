@@ -35,13 +35,26 @@ const fetchCastById = id => {
     .catch(error => error);
 };
 
-// const fetchByIdCastMovie = id => {
-//   return axios
-//     .get(
-//       `${BASE_URL}/3/search/movie/${id}/credits?api_key=${API_KEY}`,
-//     )
-//     .then(response => response.data.results)
-//     .catch(error => error);
-// };
+const fetchReviewsById = id => {
+  return axios
+    .get(`${BASE_URL}/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.data)
+    .catch(error => error);
+};
 
-export { fetchTrandingMovies, fetchMovieById, fetchCastById };
+const fetchQuerySearch = query => {
+  return axios
+    .get(
+      `${BASE_URL}/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&include_adult=false`,
+    )
+    .then(response => response.data.results)
+    .catch(error => error);
+};
+
+export {
+  fetchTrandingMovies,
+  fetchMovieById,
+  fetchCastById,
+  fetchReviewsById,
+  fetchQuerySearch,
+};

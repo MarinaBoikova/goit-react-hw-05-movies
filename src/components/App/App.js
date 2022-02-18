@@ -1,3 +1,4 @@
+import Container from 'commons/Container/Caontainer.jsx';
 import HomePage from 'pages/HomePage/HomePage.jsx';
 import MovieDetailsPage from 'pages/MovieDetailsPage/MovieDetailsPage.jsx';
 import MoviesPage from 'pages/MoviesPage/MoviesPage.jsx';
@@ -6,22 +7,23 @@ import NavigationBar from '../NavigationBar/NavigationBar.jsx';
 
 const App = () => {
   return (
-    <div className="App">
-      <NavigationBar />
+    <Container>
+      <div className="App">
+        <NavigationBar />
 
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-
-        <Route path="/movies">
-          <MoviesPage />
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
           </Route>
-        </Route>
-      </Switch>
-    </div>
+          <Route path="/movies">
+            <MoviesPage />
+          </Route>
+        </Switch>
+      </div>
+    </Container>
   );
 };
 
