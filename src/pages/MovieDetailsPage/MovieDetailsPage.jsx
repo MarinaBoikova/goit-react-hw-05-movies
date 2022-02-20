@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react';
-// import Button from 'commons/Button/Button';
 import { useState, useEffect } from 'react';
 import {
   Switch,
@@ -27,19 +26,12 @@ const MovieDetailsPage = () => {
   const { url, path } = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
-  // console.log(location);
-  // console.log(history);
-  // const params = useParams();
-  // console.log(params);
-  // const match = useRouteMatch();
-  // console.log(match);
 
   useEffect(() => {
     fetchMovieById(movieId).then(setMovie);
   }, [movieId]);
 
   const handleOnClick = () => {
-    // history.push(location.state.from);
     history.push(location?.state?.from ?? '/');
   };
 
@@ -47,11 +39,6 @@ const MovieDetailsPage = () => {
     <>
       {movie && (
         <>
-          {/* <Button
-            text="Go back"
-            onClick={handleOnClick}
-            style={{ width: '300px' }}
-          /> */}
           <button
             onClick={handleOnClick}
             style={{
@@ -86,7 +73,6 @@ const MovieDetailsPage = () => {
           <h2 className={s.titleAdditional}> Additional information</h2>
           <nav className={s.navDetailsWrap}>
             <NavLink
-              // to={`${url}/cast`}
               to={{
                 pathname: `${url}/cast`,
                 state: { from: location.state.from },
@@ -97,7 +83,6 @@ const MovieDetailsPage = () => {
               Cast
             </NavLink>
             <NavLink
-              // to={`${url}/reviews`}
               to={{
                 pathname: `${url}/reviews`,
                 state: { from: location.state.from },
@@ -110,7 +95,6 @@ const MovieDetailsPage = () => {
           </nav>
         </>
       )}
-      {/* {/* path={`/movie/${movieId}/cast`} */}
       <Suspense fallback={<Spinner />}>
         <Switch>
           <Route path={`${path}/cast`}>
