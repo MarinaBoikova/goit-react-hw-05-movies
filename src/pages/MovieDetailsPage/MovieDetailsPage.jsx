@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import Button from 'commons/Button/Button';
+// import Button from 'commons/Button/Button';
 import { useState, useEffect } from 'react';
 import {
   Switch,
@@ -47,7 +47,22 @@ const MovieDetailsPage = () => {
     <>
       {movie && (
         <>
-          <Button text="Go back" onClick={handleOnClick} />
+          {/* <Button
+            text="Go back"
+            onClick={handleOnClick}
+            style={{ width: '300px' }}
+          /> */}
+          <button
+            onClick={handleOnClick}
+            style={{
+              width: '100px',
+              height: '25px',
+              background: '#d8e7ec',
+              marginBottom: '10px',
+            }}
+          >
+            Go back
+          </button>
           {movie.poster_path && (
             <img
               className={s.image}
@@ -57,17 +72,18 @@ const MovieDetailsPage = () => {
           )}
           <div className={s.contentWrap}>
             {' '}
-            <h2>{movie.original_title || movie.original_name}</h2>
+            <h2 className={s.titleMovie}>
+              {movie.original_title || movie.original_name}
+            </h2>
             <span>User Score : </span>
             <span> {movie.vote_average * 10} %</span>
             <h2 className={s.subtitle}>Owerviev</h2>
             <p className={s.description}>{movie.overview}</p>
-            <h2>Genres</h2>
-            <p>genres</p>
+            <h2 className={s.titleGenres}>Genres</h2>
             {/* {console.log(movie?.genres?.map(genre => genre.name).join(' | '))} */}
             <p>{movie?.genres?.map(genre => genre.name).join(' | ')}</p>
           </div>
-          <h2> Additional information</h2>
+          <h2 className={s.titleAdditional}> Additional information</h2>
           <nav className={s.navDetailsWrap}>
             <NavLink
               // to={`${url}/cast`}

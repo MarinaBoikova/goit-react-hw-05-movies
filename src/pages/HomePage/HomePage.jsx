@@ -12,7 +12,7 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <h1>Tranding today</h1>
+      <h1 style={{ fontSize: '20px', marginBottom: '10px' }}>Tranding today</h1>
       <MoviesList movies={movies} />
     </>
   );

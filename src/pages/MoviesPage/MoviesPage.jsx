@@ -44,7 +44,17 @@ const MoviePage = () => {
             placeholder="Input movie name..."
             ref={inputRef}
           />
-          <button type="submit">Search</button>
+          <button
+            type="submit"
+            style={{
+              width: '100px',
+              height: '25px',
+              marginLeft: '10px',
+              background: '#d8e7ec',
+            }}
+          >
+            Search
+          </button>
         </form>
       </div>
       <MoviesList movies={movies} />

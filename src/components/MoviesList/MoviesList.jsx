@@ -1,22 +1,20 @@
 import { Link, useLocation } from 'react-router-dom';
+import s from './MoviesList.module.css';
 
 const MoviesList = ({ movies }) => {
-  // const match = useRouteMatch();
-  // console.log(match);
   const location = useLocation();
-  // console.log(location);
 
   return (
     <>
       <ul>
         {movies.map(({ id, original_title, original_name }) => (
-          <li key={id}>
-            {/* <Link to={`${match.url}/${id}`}> */}
+          <li className={s.movieItem} key={id}>
             <Link
               to={{
                 pathname: `/movies/${id}`,
                 state: { from: location },
               }}
+              className={s.movieLink}
             >
               <p> {original_title ? original_title : original_name}</p>
             </Link>

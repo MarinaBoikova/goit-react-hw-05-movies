@@ -6,7 +6,7 @@ const NavItem = ({ name, path }) => {
   return (
     <NavLink
       to={path}
-      style={{ display: 'block', marginBottom: 10 }}
+      className={s.navigationLink}
       activeClassName={s.activePage}
       exact
     >

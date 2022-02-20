@@ -1,3 +1,24 @@
 .activePage {
   color: blue;
 }
+.navigationBar {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  padding: 30px 0;
+  background: #d8e7ec;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.navigationLink {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2f2b2b;
+}
